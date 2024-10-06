@@ -12,6 +12,64 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white">
+    <!-- NAVBAR -->
+    <nav class="w-screen h-16 text-black shadow-lg z-50 top-0 bg-white fixed">
+       
+          <div class="flex justify-between mx-auto max-w-7xl px-4 items-center w-full h-full">
+          <div class="flex items-center text-xl font-bold mr-4 sm:text-2xl tracking-wide">
+            <a href="/">
+              <p>
+                <strong>Dmitri Petrov</strong>
+                <span class="uppercase font-normal"> / CG Animator</span>
+              </p>
+            </a>
+          </div>
+          <!-- Desktop Menu -->
+          <ul class="hidden md:flex space-x-4">
+            <li>
+              <a href="/" class="hover:text-gray-700">About me</a>
+            </li>
+            <li>
+              <a href="/projects" class="hover:text-gray-700">Projects</a>
+            </li>
+            <li>
+              <a href="/contacts" class="hover:text-gray-700">Contact</a>
+            </li>
+          </ul>
+          <!-- Mobile Menu Button -->
+          <div x-data="{ navOpen: false }" class="md:hidden" @click="navOpen = !navOpen">
+            <svg x-show="!navOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg x-show="navOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+          <ul
+          x-data="{ navOpen: false }"
+          x-show="navOpen"
+          @click.away="navOpen = false"
+          class="absolute w-full px-8 bg-white bg-opacity-90 md:hidden"
+        >
+          <li class="py-2">
+            <a href="/" class="block hover:text-gray-700">About me</a>
+          </li>
+          <li class="py-2">
+            <a href="/projects" class="block hover:text-gray-700">Projects</a>
+          </li>
+          <li class="py-2">
+            <a href="/contacts" class="block hover:text-gray-700">Contact</a>
+          </li>
+        </ul>
+        </div>
+        <!-- Mobile Menu -->
+        
+      
+        
+      
+    </nav>
+      
+    <!-- HEADER -->
     <header class="relative w-full header">
         <div class="aspect-16-9 lg:aspect-auto lg:h-screen relative w-full overflow-hidden headerSection">
             <picture id="imageHeader" class="w-full h-full object-cover z-10">
