@@ -18,8 +18,8 @@
     class="bg-zinc-800 text-white"
     x-data="{
       scrollTo(target) {
-        console.log('Scrolling to:', target);  // Debugging to ensure method is called
-        gsap.to(window, { duration: 1, scrollTo: target });
+        console.log('Scrolling to:', target); 
+        gsap.to(window, { duration: 0.5, scrollTo: target });
       }
     }"
   >
@@ -173,7 +173,7 @@
         <div
           class="text-xl lg:text-2xl uppercase tracking-wide text-white text-center w-11/12 sm:w-1/2 mx-auto"
         >
-          3D animator & modeller
+          3D animator &amp; modeller
         </div>
         <div class="w-full flex items-center justify-center pb-6">
           <div
@@ -371,7 +371,7 @@
       <!-- ABOUT -->
       <section class="mx-auto px-4 max-w-7xl pt-4 pb-8" id="about">
         <div class="flex flex-col gap-4 lg:w-2/3 mx-auto">
-          <h2 class="text-center text-2xl md:text-3xl xl:text-4xl mb-2">
+          <h2 class="text-center text-2xl md:text-3xl xl:text-4xl mb-4">
             Hello! I'm Dmitri
           </h2>
           <p class="text-lg md:text-xl leading-8">
@@ -389,9 +389,9 @@
             pipelines from the ground up and establish the most efficient
             workflows tailored to any project's unique needs.
           </p>
-        
+
           <a
-            class="relative group flex flex-row gap-2 overflow-hidden text-white hover:text-zinc-800 ease-in-out h-full w-fit -skew-x-12 uppercase py-4 px-8 text-center text-lg font-medium bg-zinc-800"
+            class="relative group overflow-hidden rounded-md text-white hover:text-zinc-800 ease-in-out h-full w-fit uppercase py-3 px-8 text-center text-lg font-medium bg-zinc-500"
             href="https://drive.google.com/uc?export=download&amp;id=1OucLZcRtLJPYQgmSayczsYpfsUTGxQQ-"
             rel="noreferrer"
             target="_blank"
@@ -399,8 +399,7 @@
             <span
               class="absolute top-0 left-0 w-full h-full bg-white z-10 transform -translate-y-full group-hover:translate-y-0 ease-in-out duration-300"
             ></span>
-            <p class="relative whitespace-nowrap z-20 skew-x-12">Download CV</p>
-            <svg fill="currentColor" stroke="currentColor" class="-mt-0.5 skew-x-12 h-8 w-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.293 14.707a1 1 0 0 1 1.414-1.414L11 19.586V2a1 1 0 0 1 2 0v17.586l6.293-6.293a1 1 0 0 1 1.414 1.414l-8 8a1 1 0 0 1-.325.216.986.986 0 0 1-.764 0 1 1 0 0 1-.325-.216Z"/></svg>
+            <p class="relative whitespace-nowrap z-20">Download CV</p>
           </a>
         </div>
       </section>
@@ -422,15 +421,13 @@
         }"
       >
         <div class="mx-auto px-4 max-w-7xl flex flex-col gap-4 w-full">
-          <h2 class="text-center text-2xl md:text-3xl xl:text-4xl mb-2">
+          <h2 class="text-center text-2xl md:text-3xl xl:text-4xl mb-4">
             My Works
           </h2>
 
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-12">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-12">
             <!-- Video 1 -->
-            <div
-              class="group card overflow-hidden flex flex-col gap-6 shrink-0"
-            >
+            <div class="group overflow-hidden flex flex-col gap-6 shrink-0">
               <div
                 @click="openModal('lK79KzcCGyY')"
                 class="cursor-pointer shrink-0"
@@ -439,10 +436,10 @@
                   <img
                     src="./assets/dr.webp"
                     alt="Video Thumbnail"
-                    class="w-full"
+                    class="w-full rounded-md"
                   />
                   <div
-                    class="absolute bg-zinc-800 lg:bg-opacity-30 duration-150 ease-in-out group-hover:bg-opacity-0 flex w-full h-full top-0 items-center justify-center"
+                    class="absolute bg-zinc-800 rounded-md lg:bg-opacity-30 duration-150 ease-in-out group-hover:bg-opacity-0 flex w-full h-full top-0 items-center justify-center"
                   >
                     <svg
                       width="50"
@@ -475,9 +472,7 @@
             </div>
 
             <!-- Video 2 -->
-            <div
-              class="card group overflow-hidden flex flex-col gap-4 shrink-0"
-            >
+            <div class="group overflow-hidden flex flex-col gap-4 shrink-0">
               <div
                 @click="openModal('XFNTTKEm4nc')"
                 class="cursor-pointer shrink-0"
@@ -486,10 +481,10 @@
                   <img
                     src="./assets/showreel.webp"
                     alt="Video Thumbnail"
-                    class="w-full"
+                    class="w-full rounded-md"
                   />
                   <div
-                    class="absolute bg-zinc-800 lg:bg-opacity-30 duration-150 ease-in-out group-hover:bg-opacity-0 flex w-full h-full top-0 items-center justify-center"
+                    class="absolute bg-zinc-800 rounded-md lg:bg-opacity-30 duration-150 ease-in-out group-hover:bg-opacity-0 flex w-full h-full top-0 items-center justify-center"
                   >
                     <svg
                       width="50"
@@ -521,9 +516,7 @@
             </div>
 
             <!-- Video 3 -->
-            <div
-              class="card group overflow-hidden flex flex-col gap-4 shrink-0"
-            >
+            <div class="group overflow-hidden flex flex-col gap-4 shrink-0">
               <div
                 @click="openModal('UnMDhESaK7k')"
                 class="cursor-pointer shrink-0"
@@ -532,10 +525,10 @@
                   <img
                     src="./assets/slots.webp"
                     alt="Video Thumbnail"
-                    class="w-full"
+                    class="w-full rounded-md"
                   />
                   <div
-                    class="absolute bg-zinc-800 lg:bg-opacity-30 duration-150 ease-in-out group-hover:bg-opacity-0 flex w-full h-full top-0 items-center justify-center"
+                    class="absolute bg-zinc-800 rounded-md lg:bg-opacity-30 duration-150 ease-in-out group-hover:bg-opacity-0 flex w-full h-full top-0 items-center justify-center"
                   >
                     <svg
                       width="50"
@@ -560,7 +553,7 @@
                     </svg>
                   </div>
                 </div>
-                <h3 class="lg:ml-4 lg:mr-8 text-xl md:text-2xl font-bold">
+                <h3 class="lg:ml-4 lg:mr-8 text-xl md:text-2xl font-bold mt-2">
                   Slot animation samples
                 </h3>
               </div>
@@ -611,26 +604,253 @@
       <!-- CONTACT -->
       <section class="mx-auto px-4 max-w-7xl py-8" id="contacts">
         <div class="flex flex-col gap-4 w-full mx-auto">
-          <h2 class="text-center text-2xl md:text-3xl xl:text-4xl mb-2">
+          <h2 class="text-center text-2xl md:text-3xl xl:text-4xl mb-4">
             CONTACT
           </h2>
-          <form name="contact" method="POST" data-netlify="true">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-            />
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            class="w-full flex flex-col gap-6 lg:w-2/3 mx-auto"
+          >
+            <div class="flex flex-col sm:flex-row w-full gap-6">
+              <input
+                class="rounded-md p-2 w-full"
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+              />
+              <input
+                class="rounded-md p-2 w-full"
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+
             <textarea
+              class="rounded-md p-2"
               name="message"
               placeholder="Your Message"
               required
             ></textarea>
-            <button type="submit">Send</button>
+
+            <button
+              type="submit"
+              class="relative self-start group overflow-hidden rounded-md text-white hover:text-zinc-800 ease-in-out h-full w-fit uppercase py-3 px-8 text-center text-lg font-medium bg-zinc-500"
+            >
+              <span
+                class="absolute top-0 left-0 w-full h-full bg-white z-10 transform -translate-y-full group-hover:translate-y-0 ease-in-out duration-300"
+              ></span>
+              <p class="relative whitespace-nowrap z-20">Submit</p>
+            </button>
           </form>
         </div>
       </section>
+      <footer class="bg-zinc-800 w-full relative">
+        <div
+          class="mx-auto px-4 max-w-7xl pt-4 pb-8 flex flex-col items-center justify-center"
+        >
+          <div class="w-full flex items-center justify-center pb-6">
+            <div
+              class="my-2 flex w-full items-center gap-4 sm:gap-8 justify-center"
+            >
+              <a
+                href="https://www.linkedin.com/in/dmitri-petrov/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <svg
+                  fill="#FFF"
+                  class="w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] hover:scale-110 duration-150 ease-in-out"
+                  viewBox="0 0 32 32"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="#FFF"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <title>linkedin</title>
+                    <path
+                      d="M28.778 1.004h-25.56c-0.008-0-0.017-0-0.027-0-1.199 0-2.172 0.964-2.186 2.159v25.672c0.014 1.196 0.987 2.161 2.186 2.161 0.010 0 0.019-0 0.029-0h25.555c0.008 0 0.018 0 0.028 0 1.2 0 2.175-0.963 2.194-2.159l0-0.002v-25.67c-0.019-1.197-0.994-2.161-2.195-2.161-0.010 0-0.019 0-0.029 0h0.001zM9.9 26.562h-4.454v-14.311h4.454zM7.674 10.293c-1.425 0-2.579-1.155-2.579-2.579s1.155-2.579 2.579-2.579c1.424 0 2.579 1.154 2.579 2.578v0c0 0.001 0 0.002 0 0.004 0 1.423-1.154 2.577-2.577 2.577-0.001 0-0.002 0-0.003 0h0zM26.556 26.562h-4.441v-6.959c0-1.66-0.034-3.795-2.314-3.795-2.316 0-2.669 1.806-2.669 3.673v7.082h-4.441v-14.311h4.266v1.951h0.058c0.828-1.395 2.326-2.315 4.039-2.315 0.061 0 0.121 0.001 0.181 0.003l-0.009-0c4.5 0 5.332 2.962 5.332 6.817v7.855z"
+                    ></path>
+                  </g>
+                </svg>
+              </a>
+              <a
+                href="mailto:gear.shiftin42@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <svg
+                  class="h-[38px] w-[35px] sm:h-[47px] sm:w-[45px] hover:scale-110 duration-150 ease-in-out"
+                  version="1.1"
+                  id="_x32_"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 512 512"
+                  xml:space="preserve"
+                  fill="#000000"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <style type="text/css">
+                      .st0 {
+                        fill: #ffffff;
+                      }
+                    </style>
+                    <g>
+                      <path
+                        class="st0"
+                        d="M440.917,67.925H71.083C31.827,67.925,0,99.752,0,139.008v233.984c0,39.256,31.827,71.083,71.083,71.083 h369.834c39.255,0,71.083-31.827,71.083-71.083V139.008C512,99.752,480.172,67.925,440.917,67.925z M178.166,321.72l-99.54,84.92 c-7.021,5.992-17.576,5.159-23.567-1.869c-5.992-7.021-5.159-17.576,1.87-23.567l99.54-84.92c7.02-5.992,17.574-5.159,23.566,1.87 C186.027,305.174,185.194,315.729,178.166,321.72z M256,289.436c-13.314-0.033-26.22-4.457-36.31-13.183l0.008,0.008l-0.032-0.024 c0.008,0.008,0.017,0.008,0.024,0.016L66.962,143.694c-6.98-6.058-7.723-16.612-1.674-23.583c6.057-6.98,16.612-7.723,23.582-1.674 l152.771,132.592c3.265,2.906,8.645,5.004,14.359,4.971c5.706,0.017,10.995-2.024,14.44-5.028l0.074-0.065l152.615-132.469 c6.971-6.049,17.526-5.306,23.583,1.674c6.048,6.97,5.306,17.525-1.674,23.583l-152.77,132.599 C282.211,284.929,269.322,289.419,256,289.436z M456.948,404.771c-5.992,7.028-16.547,7.861-23.566,1.869l-99.54-84.92 c-7.028-5.992-7.861-16.546-1.869-23.566c5.991-7.029,16.546-7.861,23.566-1.87l99.54,84.92 C462.107,387.195,462.94,397.75,456.948,404.771z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+              <a
+                href="https://www.artstation.com/landmine"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <svg
+                  class="w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] hover:scale-110"
+                  fill="#FFF"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="#FFF"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <title>ArtStation icon</title>
+                    <path
+                      d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.142-1.289H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z"
+                    ></path>
+                  </g>
+                </svg>
+              </a>
+              <a href="https://t.me/dzimge" target="_blank" rel="noreferrer">
+                <svg
+                  class="w-[35px] h-[35px] sm:w-[45px] sm:h-[45px] hover:scale-110 duration-150 ease-in-out"
+                  fill="#ffffff"
+                  viewBox="0 0 32 32"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="#ffffff"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M29.919 6.163l-4.225 19.925c-0.319 1.406-1.15 1.756-2.331 1.094l-6.438-4.744-3.106 2.988c-0.344 0.344-0.631 0.631-1.294 0.631l0.463-6.556 11.931-10.781c0.519-0.462-0.113-0.719-0.806-0.256l-14.75 9.288-6.35-1.988c-1.381-0.431-1.406-1.381 0.288-2.044l24.837-9.569c1.15-0.431 2.156 0.256 1.781 2.013z"
+                    ></path>
+                  </g>
+                </svg>
+              </a>
+              <a
+                href="https://discordapp.com/users/Dmitri#4430"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <svg
+                  class="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] hover:scale-110 duration-150 ease-in-out"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M18.59 5.88997C17.36 5.31997 16.05 4.89997 14.67 4.65997C14.5 4.95997 14.3 5.36997 14.17 5.69997C12.71 5.47997 11.26 5.47997 9.83001 5.69997C9.69001 5.36997 9.49001 4.95997 9.32001 4.65997C7.94001 4.89997 6.63001 5.31997 5.40001 5.88997C2.92001 9.62997 2.25001 13.28 2.58001 16.87C4.23001 18.1 5.82001 18.84 7.39001 19.33C7.78001 18.8 8.12001 18.23 8.42001 17.64C7.85001 17.43 7.31001 17.16 6.80001 16.85C6.94001 16.75 7.07001 16.64 7.20001 16.54C10.33 18 13.72 18 16.81 16.54C16.94 16.65 17.07 16.75 17.21 16.85C16.7 17.16 16.15 17.42 15.59 17.64C15.89 18.23 16.23 18.8 16.62 19.33C18.19 18.84 19.79 18.1 21.43 16.87C21.82 12.7 20.76 9.08997 18.61 5.88997H18.59ZM8.84001 14.67C7.90001 14.67 7.13001 13.8 7.13001 12.73C7.13001 11.66 7.88001 10.79 8.84001 10.79C9.80001 10.79 10.56 11.66 10.55 12.73C10.55 13.79 9.80001 14.67 8.84001 14.67ZM15.15 14.67C14.21 14.67 13.44 13.8 13.44 12.73C13.44 11.66 14.19 10.79 15.15 10.79C16.11 10.79 16.87 11.66 16.86 12.73C16.86 13.79 16.11 14.67 15.15 14.67Z"
+                      fill="#ffffff"
+                    ></path>
+                  </g>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <p>© 2024 Dmitri Petrov</p>
+          <p class="text-zinc-800 text-xs absolute bottom-0 right-0">
+            Website created by
+            <a href="https://beefybee.com/" target="_blank" class="cursor-none"
+              >BeefyBee</a
+            >
+          </p>
+          <a
+            href="#about"
+            @click.prevent="scrollTo('#about')"
+            class="overflow-y-hidden cursor-pointer text-theme-white absolute bottom-6 right-4 z-30 p-2"
+          >
+            <svg
+              class="rotate-180 w-8 h-8 md:w-10 md:h-10 opacity-90"
+              width="15"
+              height="15"
+              viewBox="0 -4.5 20 20"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>arrow_down [#338]</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="Dribbble-Light-Preview"
+                    transform="translate(-220.000000, -6684.000000)"
+                    fill="#ffffff"
+                  >
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        d="M164.292308,6524.36583 L164.292308,6524.36583 C163.902564,6524.77071 163.902564,6525.42619 164.292308,6525.83004 L172.555873,6534.39267 C173.33636,6535.20244 174.602528,6535.20244 175.383014,6534.39267 L183.70754,6525.76791 C184.093286,6525.36716 184.098283,6524.71997 183.717533,6524.31405 C183.328789,6523.89985 182.68821,6523.89467 182.29347,6524.30266 L174.676479,6532.19636 C174.285736,6532.60124 173.653152,6532.60124 173.262409,6532.19636 L165.705379,6524.36583 C165.315635,6523.96094 164.683051,6523.96094 164.292308,6524.36583"
+                        id="arrow_down-[#338]"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </footer>
     </main>
     <script type="module" src="scripts/main.js"></script>
   </body>

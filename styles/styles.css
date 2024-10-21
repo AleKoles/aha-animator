@@ -35,8 +35,8 @@ h2 {
   font-style: normal;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .card {
     clip-path: polygon(16% 0, 100% 0%, 84% 100%, 0% 100%);
   }
-}
+} */
