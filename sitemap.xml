@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Section -->
+  <url>
+    <loc>https://petrov-animation.netlify.app/#header</loc>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- About Me Section -->
+  <url>
+    <loc>https://petrov-animation.netlify.app/#about</loc>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Projects Section -->
+  <url>
+    <loc>https://petrov-animation.netlify.app.com/#projects</loc>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Contact Section -->
+  <url>
+    <loc>https://petrov-animation.netlify.app.com/#contacts</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
