@@ -1,16 +1,16 @@
 {
   "name": "petrov_cg_artist",
   "version": "1.0.0",
+  "description": "Portfolio site for CG artist Petrov",
   "main": "index.js",
+  "author": "Petrov",
+  "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "postcss styles/styles.css -o output.css",
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@types/alpinejs": "^3.13.10",
     "autoprefixer": "^10.4.20",
