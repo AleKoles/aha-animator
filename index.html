@@ -464,103 +464,86 @@
       <!-- PROJECTS -->
       <section
         id="projects"
-        class="py-24 mx-auto max-w-7xl px-4 bg-gradient-to-t from-zinc-900 via-zinc-700 to-zinc-900 text-white" style="padding-bottom: 48px; padding-top: 48px;"
+        class="py-16 bg-gradient-to-t from-zinc-900 via-zinc-700 to-zinc-900 text-white" style="padding-top: 48px; padding-bottom: 48px;"
         x-data="{
           active: {
             id: 'lK79KzcCGyY',
-            title: 'Trailer for a Frankenstein Themed Game',
-            thumb: '/images/dr.webp'
+            title: 'Trailer for a Frankenstein Themed Game'
           },
           videos: [
-            { id: 'XFNTTKEm4nc', title: 'Showreel',               thumb: '/images/showreel.webp' },
-            { id: 'UnMDhESaK7k', title: 'Slot animation samples', thumb: '/images/slots.webp' }
+            { id: 'XFNTTKEm4nc', title: 'Showreel' },
+            { id: 'UnMDhESaK7k', title: 'Slot animation samples' }
           ],
           playing: false,
           play() {
-            this.playing = true
-            const el = document.querySelector('.featured-video')
-            gsap.fromTo(
-              el,
-              { opacity: 0, scale: 1.02 },
-              { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' }
-            )
+            this.playing = true;
+            const el = document.querySelector('.featured-video');
+            gsap.fromTo(el, { opacity: 0, scale: 1.02 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
           },
           swap(index) {
-            const el = document.querySelector('.featured-video')
+            const el = document.querySelector('.featured-video');
             gsap.to(el, {
-              opacity: 0,
-              scale: 0.97,
-              duration: 0.25,
-              ease: 'power2.out',
+              opacity: 0, scale: 0.97, duration: 0.25, ease: 'power2.out',
               onComplete: () => {
-                const newActive = this.videos[index]
-                this.videos[index] = this.active
-                this.active = newActive
-                this.playing = false
-                gsap.fromTo(
-                  el,
-                  { opacity: 0, scale: 1.03 },
-                  { opacity: 1, scale: 1, duration: 0.35, ease: 'power2.out' }
-                )
+                const next = this.videos[index];
+                this.videos[index] = this.active;
+                this.active = next;
+                this.playing = false;
+                gsap.fromTo(el, { opacity: 0, scale: 1.03 }, { opacity: 1, scale: 1, duration: 0.35, ease: 'power2.out' });
               }
-            })
+            });
           }
         }"
       >
-        <div style="display: flex; flex-direction: column; gap: 3rem;">
-          <h2 class="text-center text-2xl md:text-3xl xl:text-4xl">
-            My Works
-          </h2>
+        <div class="mx-auto max-w-7xl px-4" style="display:flex; flex-direction:column; gap:3rem;">
 
-          <!-- FEATURED VIDEO -->
-          <div class="featured-video" style="border-radius: 0.75rem; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5); position: relative;">
+          <h2 class="text-center text-2xl md:text-3xl xl:text-4xl">My Works</h2>
 
-            <!-- Thumbnail overlay — hidden once playing -->
-            <div
-            x-show="!playing"
-            class="video-thumb group"
-            style="position: relative; cursor: pointer; border-radius: 0.75rem; overflow: hidden;"
-            @click="play()"
-          >
-            <img :src="active.thumb" class="w-full aspect-video object-cover" style="display: block;">
-            <div
-              class="transition-colors group-hover:bg-black/20"
-              style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.4);"
-            >
-            <div
-              class="play-btn"
-              style="width: 5rem; height: 5rem; border-radius: 9999px; background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"
-            >
-                <svg width="36" viewBox="0 0 24 24" fill="white">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
+          <!-- Featured video -->
+          <div class="featured-video" style="border-radius:0.75rem; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.5); position:relative;">
+
+            <div x-show="!playing" class="video-thumb" style="position:relative; cursor:pointer; border-radius:0.75rem; overflow:hidden;" @click="play()">
+              <img
+                :src="'https://img.youtube.com/vi/' + active.id + '/maxresdefault.jpg'"
+                :alt="active.title"
+                class="w-full aspect-video object-cover"
+                style="display:block;"
+              >
+              <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.4);">
+                <div class="play-btn" style="width:5rem; height:5rem; border-radius:9999px; background:rgba(255,255,255,0.2); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+                  <svg width="36" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </div>
               </div>
             </div>
-          </div>
 
-            <!-- iframe — always in DOM, src set on play to preserve user gesture -->
             <iframe
               x-show="playing"
-              class="w-full aspect-video"
-              style="display: block; border: none;"
               :src="playing ? 'https://www.youtube.com/embed/' + active.id + '?autoplay=1&rel=0' : ''"
+              :title="active.title"
+              class="w-full aspect-video"
+              style="display:block; border:none;"
               allow="autoplay; encrypted-media"
               allowfullscreen
             ></iframe>
 
           </div>
 
-          <!-- THUMBNAILS -->
-          <div style="display: flex; gap: 1.5rem; justify-content: center;">
+          <!-- Thumbnails -->
+          <div style="display:flex; gap:1.5rem; justify-content:center;">
             <template x-for="(video, index) in videos" :key="video.id">
               <div
                 class="project-card"
-                style="position: relative; width: 100%; max-width: 48%; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4); cursor: pointer;"
+                style="position:relative; width:100%; max-width:48%; border-radius:0.5rem; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.4); cursor:pointer;"
                 @click="swap(index)"
               >
-                <img :src="video.thumb" class="w-full aspect-video object-cover" style="display: block;">
-                <div style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);"></div>
-                <div style="position: absolute; bottom: 1rem; left: 1rem; right: 1rem; z-index: 2; font-size: 1 rem; font-weight: 600; color: white; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">
+                <img
+                  :src="'https://img.youtube.com/vi/' + video.id + '/maxresdefault.jpg'"
+                  :alt="video.title"
+                  class="w-full aspect-video object-cover"
+                  style="display:block;"
+                >
+                <div style="position:absolute; inset:0; z-index:1; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);"></div>
+                <div style="position:absolute; bottom:1rem; left:1rem; right:1rem; z-index:2; font-size:1.125rem; font-weight:600; color:white; text-shadow:0 1px 4px rgba(0,0,0,0.8);">
                   <span x-text="video.title"></span>
                 </div>
               </div>
