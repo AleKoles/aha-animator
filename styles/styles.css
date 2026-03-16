@@ -1,9 +1,8 @@
-/* styles.css */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Oswald:wght@200..700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Oswald:wght@200..700&display=swap");
 
 html {
   scroll-behavior: smooth;
@@ -37,16 +36,22 @@ h2 {
 }
 
 .project-card {
-  will-change: transform;
-  transition: box-shadow 0.3s ease;
+  transition: transform .35s ease, box-shadow .35s ease;
 }
 
 .project-card:hover {
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0,0,0,.35);
 }
 
-/* @media (min-width: 1024px) {
-  .card {
-    clip-path: polygon(16% 0, 100% 0%, 84% 100%, 0% 100%);
-  }
-} */
+.featured-video {
+  will-change: transform, opacity;
+}
+
+.play-btn {
+  transition: transform 0.3s ease;
+}
+
+.video-thumb:hover .play-btn {
+  transform: scale(1.15);
+}

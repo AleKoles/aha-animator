@@ -15,12 +15,10 @@ Alpine.start();
 
 window.addEventListener("load", () => {
 
-  // force start at top
   window.scrollTo(0, 0);
-
   ScrollTrigger.refresh();
 
-  // HERO animation
+ 
   gsap.from(".hero-content > *", {
     y: 40,
     opacity: 0,
@@ -35,38 +33,52 @@ window.addEventListener("load", () => {
     ease: "power2.out"
   });
 
-  const cards = document.querySelectorAll(".project-card");
 
-  cards.forEach((card) => {
+  Alpine.nextTick(() => {
 
-    gsap.from(card, {
-      y: 120,
+    const projectItems = document.querySelectorAll(
+      "#projects .featured-video, #projects .project-card"
+    );
+
+    if (projectItems.length) {
+      gsap.fromTo(
+        projectItems,
+        { opacity: 0, y: 80 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: "#projects",
+            start: "top 80%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    }
+
+    const cards = document.querySelectorAll(".project-card");
+    cards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        gsap.to(card, { y: -8, scale: 1.04, duration: 0.3, ease: "power2.out" });
+      });
+      card.addEventListener("mouseleave", () => {
+        gsap.to(card, { y: 0, scale: 1, duration: 0.3, ease: "power2.out" });
+      });
+    });
+
+    gsap.from(".featured-video svg", {
+      scale: 0.8,
       opacity: 0,
-      duration: 0.8,
-      ease: "power3.out",
+      duration: 0.6,
+      delay: 0.3,
+      ease: "back.out(1.7)",
       scrollTrigger: {
-        trigger: card,
-        start: "top 85%",
-        toggleActions: "play none none none"
+        trigger: ".featured-video",
+        start: "top 85%"
       }
-    });
-
-    card.addEventListener("mouseenter", () => {
-      gsap.to(card, {
-        y: -8,
-        scale: 1.03,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    });
-
-    card.addEventListener("mouseleave", () => {
-      gsap.to(card, {
-        y: 0,
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out"
-      });
     });
 
   });
