@@ -48,7 +48,7 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 
-  
+    <link rel="preload" href="/images/robot_model.webp" as="image">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -70,129 +70,143 @@
     class="bg-zinc-800 text-white"
     x-data="{
       scrollTo(target) {
-        console.log('Scrolling to:', target); 
-        gsap.to(window, { duration: 0.5, scrollTo: target });
+        const el = document.querySelector(target);
+        gsap.to(window, {
+          duration: 0.6,
+          scrollTo: el,
+          onComplete() {
+            history.replaceState(null, null, ' ');
+          }
+        });
       }
     }"
-  >
-    <!-- NAVBAR -->
-    <nav id="#nav"
-      class="w-full h-16 text-black shadow-lg z-50 top-0 bg-white bg-opacity-95 sticky"
     >
-      <div
-        class="flex justify-between mx-auto max-w-7xl px-4 items-center w-full h-full"
-      >
-        <div
-          class="flex items-center text-xl font-bold mr-4 sm:text-2xl tracking-wide"
+    <!-- NAVBAR -->
+    <nav
+  id="nav"
+  class="w-full h-16 text-black shadow-lg z-50 top-0 bg-white bg-opacity-95 sticky"
+>
+  <div
+    class="flex justify-between mx-auto max-w-7xl px-4 items-center w-full h-full"
+  >
+
+    <!-- Logo -->
+    <div class="flex items-center text-xl font-bold mr-4 sm:text-2xl tracking-wide">
+      <button @click="scrollTo('#header')" class="text-left">
+        <strong class="oswald">Dmitri Petrov</strong>
+        <span class="uppercase font-normal"> / CG Animator</span>
+      </button>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex space-x-4">
+
+      <li>
+        <button
+          @click="scrollTo('#about')"
+          class="hover:text-gray-700"
         >
-          <a href="#header" @click.prevent="scrollTo('#header')">
-            <p>
-              <strong class="oswald">Dmitri Petrov</strong>
-              <span class="uppercase font-normal"> / CG Animator</span>
-            </p>
-          </a>
-        </div>
+          About me
+        </button>
+      </li>
 
-        <!-- Desktop Menu -->
-        <ul class="hidden md:flex space-x-4">
-          <li>
-            <a
-              href="#about"
-              @click.prevent="scrollTo('#about')"
-              class="hover:text-gray-700"
-              >About me</a
-            >
-          </li>
-          <li>
-            <a
-              href="#projects"
-              @click.prevent="scrollTo('#projects')"
-              class="hover:text-gray-700"
-              >Projects</a
-            >
-          </li>
-          <li>
-            <a
-              href="#contacts"
-              @click.prevent="scrollTo('#contacts')"
-              class="hover:text-gray-700"
-              >Contact</a
-            >
-          </li>
-        </ul>
+      <li>
+        <button
+          @click="scrollTo('#projects')"
+          class="hover:text-gray-700"
+        >
+          Projects
+        </button>
+      </li>
 
-        <!-- Mobile Menu -->
-        <div x-data="{ navOpen: false }" class="md:hidden">
-          <div @click="navOpen = !navOpen">
-            <svg
-              x-show="!navOpen"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-            <svg
-              x-show="navOpen"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </div>
-          <ul
-            x-show="navOpen"
-            @click.away="navOpen = false"
-            class="absolute flex flex-col items-center gap-4 py-8 left-0 top-16 w-full px-8 bg-white bg-opacity-95 md:hidden"
+      <li>
+        <button
+          @click="scrollTo('#contacts')"
+          class="hover:text-gray-700"
+        >
+          Contact
+        </button>
+      </li>
+
+    </ul>
+
+    <!-- Mobile Menu -->
+    <div x-data="{ navOpen: false }" class="md:hidden">
+
+      <!-- Burger -->
+      <button @click="navOpen = !navOpen">
+
+        <svg
+          x-show="!navOpen"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+
+        <svg
+          x-show="navOpen"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+
+      </button>
+
+      <!-- Mobile Menu -->
+      <ul
+        x-show="navOpen"
+        @click.away="navOpen = false"
+        class="absolute flex flex-col items-center gap-4 py-8 left-0 top-16 w-full px-8 bg-white bg-opacity-95 md:hidden"
+      >
+
+        <li>
+          <button
+            @click="scrollTo('#about'); navOpen=false"
+            class="hover:text-gray-700"
           >
-            <li>
-              <a
-                href="#about"
-                @click.prevent="scrollTo('#about')"
-                class="hover:text-gray-700"
-                >About me</a
-              >
-            </li>
-            <li>
-              <a
-                href="#projects"
-                @click.prevent="scrollTo('#projects')"
-                class="hover:text-gray-700"
-                >Projects</a
-              >
-            </li>
-            <li>
-              <a
-                href="#contacts"
-                @click.prevent="scrollTo('#contacts')"
-                class="hover:text-gray-700"
-                >Contact</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+            About me
+          </button>
+        </li>
+
+        <li>
+          <button
+            @click="scrollTo('#projects'); navOpen=false"
+            class="hover:text-gray-700"
+          >
+            Projects
+          </button>
+        </li>
+
+        <li>
+          <button
+            @click="scrollTo('#contacts'); navOpen=false"
+            class="hover:text-gray-700"
+          >
+            Contact
+          </button>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+</nav>
 
     <!-- HEADER -->
     <header class="relative w-full" id="header">
       <div
-        class="aspect-16-9 lg:aspect-auto lg:h-screen relative w-full overflow-hidden headerSection"
+        class="h-screen relative w-full overflow-hidden headerSection"
       >
         <picture id="imageHeader" class="w-full h-full object-cover z-10">
           <source
@@ -201,9 +215,10 @@
             alt="Robot Model"
           />
           <img
-            class="w-full h-full object-cover"
             src="images/robot_model.webp"
             alt="Robot Model"
+            class="w-full h-full object-cover"
+            loading="eager"
           />
         </picture>
         <div
@@ -470,7 +485,7 @@
 
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-12">
             <!-- Video 1 -->
-            <div class="group overflow-hidden flex flex-col gap-6 shrink-0">
+            <div class="project-card group overflow-hidden flex flex-col gap-6 shrink-0">
               <div
                 @click="openModal('lK79KzcCGyY')"
                 class="cursor-pointer shrink-0"
@@ -515,7 +530,7 @@
             </div>
 
             <!-- Video 2 -->
-            <div class="group overflow-hidden flex flex-col gap-4 shrink-0">
+            <div class="project-card group overflow-hidden flex flex-col gap-4 shrink-0">
               <div
                 @click="openModal('XFNTTKEm4nc')"
                 class="cursor-pointer shrink-0"
@@ -559,7 +574,7 @@
             </div>
 
             <!-- Video 3 -->
-            <div class="group overflow-hidden flex flex-col gap-4 shrink-0">
+            <div class="project-card group overflow-hidden flex flex-col gap-4 shrink-0">
               <div
                 @click="openModal('UnMDhESaK7k')"
                 class="cursor-pointer shrink-0"
@@ -846,6 +861,5 @@
         </div>
       </footer>
     </main>
-    <script type="module" src="scripts/main.js"></script>
   </body>
 </html>
