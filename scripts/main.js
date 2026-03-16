@@ -3,10 +3,10 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
-// prevent browser restoring old scroll position
 history.scrollRestoration = "manual";
+window.scrollTo(0, 0);
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 window.Alpine = Alpine;
 window.gsap = gsap;
@@ -21,12 +21,18 @@ window.addEventListener("load", () => {
   ScrollTrigger.refresh();
 
   // HERO animation
-  gsap.from("#header h1, #header div, #header a", {
+  gsap.from(".hero-content > *", {
     y: 40,
     opacity: 0,
     duration: 1,
     stagger: 0.2,
     ease: "power3.out"
+  });
+
+  gsap.from("#imageHeader img", {
+    opacity: 0,
+    duration: 1.2,
+    ease: "power2.out"
   });
 
   const cards = document.querySelectorAll(".project-card");
